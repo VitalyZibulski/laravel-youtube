@@ -16,7 +16,7 @@ class ViewServiceProvider extends ServiceProvider
     {
     	if(!Auth::check()){
 			view()->composer('layouts.partials._navigation',function($view){
-				$view->with('channel', Auth::user()->channel->first() );
+				$view->with('channel', Auth::user()->channels()->first() );
 			});
 		}
 

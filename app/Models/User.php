@@ -28,7 +28,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function channel()
+    public function channels()
 	{
 		return $this->hasMany(Channel::class);
 	}

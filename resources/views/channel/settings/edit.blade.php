@@ -27,9 +27,9 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="name" class="col-md-4 col-form-label text-md-left">{{ __('Name') }}</label>
+                                <label for="slug" class="col-md-4 col-form-label text-md-left">{{ __('Unique URL') }}</label>
                                 <div class="input-group input-group-sm mb-3">
-                                    <div class="input-group-text">{{config('app.url')}}</div>
+                                    <div class="input-group-text">{{config('app.url')}}/channel</div>
                                     <input id="slug" type="text" class="form-control{{ $errors->has('slug') ? ' is-invalid' : '' }}" name="slug" value="{{ old('slug') ? old('slug') : $channel->slug }}" required autofocus>
                                 </div>
                                     @if ($errors->has('slug'))
@@ -39,6 +39,18 @@
                                     @endif
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="description" class="col-md-4 col-form-label text-md-left">{{ __('Description') }}</label>
+                                <div class="col-md-12">
+                                    <textarea id="description"  class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" required autofocus>{{ old('description') ? old('description') : $channel->description }}</textarea>
+                                    @if ($errors->has('description'))
+                                        <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('description') }}</strong>
+                                    </span>
+                                    @endif
+                                    </div>
+                            </div>
+                    </div>
                     </div>
                 </div>
             </div>
