@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Channel settings</div>
-                    {{Form::open(['url' => ['/channel/update', $channel->slug],'files' => true, 'method' => 'put'])}}
+                    {{Form::open(['url' => ['/channel/update', $channel->slug],'files' => true, 'method' => 'put', ])}}
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success">
@@ -50,6 +50,12 @@
                                     @endif
                                     </div>
                                 </div>
+                            <div class="form-group">
+                                <label for="description" class="col-md-4 col-form-label text-md-left">{{ __('Channel image') }}</label>
+                                <div class="col-md-12">
+                                    <input type="file" name="image" id="image">
+                                </div>
+                            </div>
                                 <button class="btn btn-secondary btn-lg btn-block" type="submit">Update</button>
                     {{ Form::close() }}
                             </div>
