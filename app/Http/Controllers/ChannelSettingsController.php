@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Channel;
+use App\Http\Requests\ChannelUpdateRequest;
 
 class ChannelSettingsController extends Controller
 {
@@ -13,7 +14,7 @@ class ChannelSettingsController extends Controller
 
 	}
 
-	public function update(Channel $channel){
-		dd($channel);
+	public function update(ChannelUpdateRequest $request, Channel $channel){
+		dd('update');
 	}
 }
