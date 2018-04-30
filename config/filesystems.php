@@ -64,12 +64,12 @@ return [
             'url' => env('AWS_URL'),
         ],
 
-		's3_images' => [
+		's3images' => [
 			'driver' => 's3',
 			'key' => env('AWS_ACCESS_KEY_ID'),
 			'secret' => env('AWS_SECRET_ACCESS_KEY'),
 			'region' => env('AWS_DEFAULT_REGION'),
-			'bucket' => env('images.my-youtube.com'),
+			'bucket' => 'images.my-youtube.com',
 			'url' => env('AWS_URL'),
 		],
 
