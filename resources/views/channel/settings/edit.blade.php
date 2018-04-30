@@ -17,7 +17,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-left">{{ __('Channel name') }}</label>
 
                                 <div class="col-md-12">
-                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="channel_name" value="{{ old('name') ? old('name') : $channel->name }}" required autofocus>
+                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') ? old('name') : $channel->name }}" required autofocus>
 
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback">
