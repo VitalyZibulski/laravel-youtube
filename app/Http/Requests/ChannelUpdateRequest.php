@@ -24,8 +24,8 @@ class ChannelUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255|unique:channels, name',
-			'slug' => 'required|max:255|alpha_num|unique:channels, slug',
+            'name' => 'required|max:255|unique:channels,name',
+			'slug' => 'required|max:255|alpha_num|unique:channels,slug',
 			'description' => 'max:1000',
         ];
     }
