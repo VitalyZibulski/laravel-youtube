@@ -37,6 +37,10 @@ class ChannelSettingsController extends Controller
 			'description' => $request->description,
 		]);
 
+		if($request->file('image')){
+			$request->file('image')->move(storage_path().'/uploads',$fileId = uniqid(true));
+		}
+
 
 		return redirect()->to("/channel/edit/{$channel->slug}");
 
