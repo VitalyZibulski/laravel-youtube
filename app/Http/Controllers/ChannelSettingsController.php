@@ -25,9 +25,20 @@ class ChannelSettingsController extends Controller
 	 *
 	 * @param ChannelUpdateRequest $request
 	 * @param Channel $channel
+	 * @return \Illuminate\Http\RedirectResponse
 	 * @throws \Illuminate\Auth\Access\AuthorizationException
 	 */
 	public function update(ChannelUpdateRequest $request, Channel $channel){
 		$this->authorize('update',$channel);
+
+		$channel->update([
+			'name' => $request->name,
+			'slug' => $request->slug,
+			'description' => $request->description,
+		]);
+
+
+		return redirect()->to("/channel/edit/{$channel->slug}");
+
 	}
 }
