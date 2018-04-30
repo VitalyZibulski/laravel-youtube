@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Channel settings</div>
-
+                    <form action="/channels/{{$channel->slug}}/edit" method="post">
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success">
@@ -49,8 +49,12 @@
                                     </span>
                                     @endif
                                     </div>
+                                </div>
+                                <button class="btn btn-secondary btn-lg btn-block" type="submit">Update</button>
+                                {{csrf_field()}}
+                                {{method_field('PUT')}}
+                    </form>
                             </div>
-                    </div>
                     </div>
                 </div>
             </div>
