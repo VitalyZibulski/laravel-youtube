@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Models\Channel;
+use Image;
 use Illuminate\Support\Facades\File;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
@@ -38,6 +39,10 @@ class UploadImage implements ShouldQueue
     {
     	$path = storage_path() . '/uploads/' . $this->fileId;
     	$fileName = $this->fileId . '.png';
+
+		Image::make($path)->encode('png')->fit(40,40, function($c){
+			$c->upsize();
+		})->save();
 
     	Storage::disk('s3images')->put('profile/'.$fileName, fopen($path, 'r+'));
 		{
