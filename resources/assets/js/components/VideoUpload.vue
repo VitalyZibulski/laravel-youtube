@@ -20,11 +20,15 @@
 
 <script>
     export default {
-        data(){
-            return{
-                uploading:false,
-                uploadingComplete:false,
-                failed:false
+        data() {
+            return {
+                uid: null,
+                uploading: false,
+                uploadingComplete: false,
+                failed: false,
+                title: 'Untitled',
+                description: null,
+                visibility: 'private',
             }
         },
         methods:{
@@ -32,9 +36,25 @@
                this.uploading = true;
                this.failed = false;
 
+                this.file = document.getElementById('video').files[0];
+
+                this.store().then(() => {
+                 //upload the video
+               });
+
                //store the metadata
                 // upload video
-            }
+            },
+            store() {
+                return this.$http.post('/videos', {
+                    title: this.title,
+                    description: this.description,
+                    visibility: this.visibility,
+                    extension: this.file.name.split('.').pop()
+                }).then((response) => {
+                    console.log(response.json());
+            });
+            },
         },
         mounted() {
            //

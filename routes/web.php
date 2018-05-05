@@ -22,6 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware'=>['auth']], function () {
 	Route::get('/upload', 'VideoUploadController@index');
 
+	Route::get('/videos', 'VideoController@store');
+
 	Route::get('/channel/edit/{channel}', 'ChannelSettingsController@edit');
 	Route::put('/channel/update/{channel}', 'ChannelSettingsController@update');
 });
