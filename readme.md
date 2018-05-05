@@ -1,1 +1,1 @@
-My project youtube on Laravel
+My project youtube on Laravel, Vue.js
